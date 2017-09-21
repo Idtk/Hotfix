@@ -1,0 +1,4 @@
+include ':app', ':patch'
+include ':patchbase'
+include ':fix-plugin'
+include ':patch'

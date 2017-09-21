@@ -1,0 +1,42 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.1.4-3'
+    repositories {
+        jcenter()
+        maven {
+            url uri('/fix')
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'me.tatarka:gradle-retrolambda:3.4.0'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.idtk.fix:fix-plugin:1.0.0'
+//        classpath 'com.idtk.fix:patchbase:1.0.0'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url uri('/fix')
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
